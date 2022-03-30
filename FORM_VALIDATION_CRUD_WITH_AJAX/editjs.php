@@ -283,14 +283,14 @@ if(isset($_SESSION['error_email_message']))
                     : (Flag = false, $("#cnValidation").html("(*) Invalid contact no..!!"));
                 return Flag;
             });
-            $("#ag").keypress(function (e) {
-                $("#agValidation").empty();
-                var Flag = false;
-                (e.which >= 48 && e.which <= 57 || (e.which == 32 || e.which == 13))
-                    ? Flag = true
-                    : (Flag = false, $("#agValidation").html("(*) Invalid Age no..!!"));
-                return Flag;
-            });
+            // $("#ag").keypress(function (e) {
+            //     $("#agValidation").empty();
+            //     var Flag = false;
+            //     (e.which >= 48 && e.which <= 57 || (e.which == 32 || e.which == 13))
+            //         ? Flag = true
+            //         : (Flag = false, $("#agValidation").html("(*) Invalid Age no..!!"));
+            //     return Flag;
+            // });
            
 
 			});
@@ -415,7 +415,7 @@ if(isset($_SESSION['error_email_message']))
 					</div> -->
 					<div class="form-group">
 						
-                        <input class="btn btn-success" type="submit" name="btn_sb" value="Updte">
+                        <input class="btn btn-success" type="submit" name="btn_sb" value="Update">
 					</div>
 				</div>
 			</div>
