@@ -11,7 +11,7 @@ $uploadok = 1;
 //echo $target_file;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 //check if image file is a actual image or face image
-if(isset($_POST["submit"])) 
+// if(isset($_POST["submit"])) 
    {
 	$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 		if($check !== false) 
@@ -19,7 +19,6 @@ if(isset($_POST["submit"]))
 			echo "File is an image - " . $check["mime"] .".";
 			$uploadok = 1;
 			//var_dump($check);
-
 		} 
 		else
 		{
@@ -38,7 +37,7 @@ if (file_exists($target_file))
 	    $uploadok = 0;
      }
 //Allow certain file formats
-if($imageFileType != "xlsx" && $imageFileType != "pdf" && $imageFileType != "docx" && $imageFileType != "ppt") 
+if($FileType != "xlsx" && $FileType != "pdf" && $FileType != "docx" && $FileType != "ppt") 
     {
     	echo "PLEASE CHOOSE FILE TO UPLOAD";
 	    exit();
@@ -48,7 +47,7 @@ if($imageFileType != "xlsx" && $imageFileType != "pdf" && $imageFileType != "doc
 //check if $uploadok is set to 0 by an error
 if ($uploadok == 0) 
     {
-        echo "sorry ,Your file was not uploaded.";
+        echo "sorry ,Your file is not uploaded.";
  //if everything is ok, try to upload file   
 	
     }
@@ -60,7 +59,7 @@ if ($uploadok == 0)
 	   } 
 	   else 
 	   {
-		  echo "SORRY,THERE WAS AN ERROR TO UPLOAD YOUR FILE.";
+		  echo "SORRY,THERE IS AN ERROR TO UPLOAD YOUR FILE.";
 	    }
 	    
     }

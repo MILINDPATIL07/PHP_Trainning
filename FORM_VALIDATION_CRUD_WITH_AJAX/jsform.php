@@ -70,7 +70,7 @@ if(isset($_SESSION['error_email_message']))
             TxtNameFlag = false;
             $("#fnValidation").empty();
             if ($(this).val() == "") {
-                $("#fnValidation").html("(*) First name Required..!!");
+                $("#fnValidation").html("(*) First Name Required..!!");
                 // alert("#fnValidation");
             } else {
                 if (!$(this).val().match($FNameLNameRegEx)) {
@@ -119,48 +119,43 @@ if(isset($_SESSION['error_email_message']))
 
             })
         });
-        $("#add").blur(function () {
+        $("#add").blur(function() {
             $("#addValidation").empty();
             if ($(this).val() == "" || $(this).val() == null) {
                 $("#addValidation").html("(*) Address required..!!");
                 addNameFlag = false;
-            }
-            else {
-                
-                    addNameFlag = true;
-            }
-        });	
+            } else {
 
-         $(document).ready(function(){
-        		$("#add").blur(function(){
-        			addNameFlag=false;
-        		$("#agValidation").empty();
-        		if($(this).val()=="") 
-        		{
-        			$("#addValidation").html("(*) Address required..!!");
-
-        		}
-        		else{
-        			
-        				addNameFlag=true;
-        		}
-        	})
+                addNameFlag = true;
+            }
         });
-//===========================================================
-        $(document).ready(function(){
-        		$("#Designation").blur(function(){
-        			DesignationFlag=false;
-        		$("#agValidation").empty();
-        		if($(this).find("option:selected").text() === " ") 
-        		{
-        			$("#DesignationValidation").html("(*) Designation required..!!");
 
-        		}
-        		else{
-        			
-        				DesignationFlag=true;
-        		}
-        	})
+        $(document).ready(function() {
+            $("#add").blur(function() {
+                addNameFlag = false;
+                $("#agValidation").empty();
+                if ($(this).val() == "") {
+                    $("#addValidation").html("(*) Address required..!!");
+
+                } else {
+
+                    addNameFlag = true;
+                }
+            })
+        });
+        //===========================================================
+        $(document).ready(function() {
+            $("#Designation").blur(function() {
+                DesignationFlag = false;
+                $("#agValidation").empty();
+                if ($(this).find("option:selected").text() === " ") {
+                    $("#DesignationValidation").html("(*) Designation required..!!");
+
+                } else {
+
+                    DesignationFlag = true;
+                }
+            })
         });
 
         $("#cn").blur(function() {
@@ -212,7 +207,7 @@ if(isset($_SESSION['error_email_message']))
                 }
             }
 
-//====================================================================
+            //====================================================================
 
 
             DesignationFlag = false;
@@ -223,41 +218,39 @@ if(isset($_SESSION['error_email_message']))
                 // if (!$("#Designation").val().match($EmailIdRegEx)) {
                 //     $("#DesignationValidation").html("(*) Invalid Email_id..!!");
                 // } else {
-                    DesignationFlag = true;
+                DesignationFlag = true;
                 // }
             }
-    //         DesignationFlag = false;
-    //         $(function(){
-    //         $("#Designation").change(function(){
-    //         // var HoursEntry = $("#Designation option:selected").val();
-    //         // console.log(HoursEntry);
-    //         // alert(DesignationValidation);
-    //         if("#Designation" == "")
-    //         {
-    //             $("#DesignationValidation").html("Please select at least One option");
-    //             return false;
-    //         }
-    //         else
-    //         {
-    //             $("#DesignationValidation").html("selected val is  "+HoursEntry);
-    //             return true;
-    //             DesignationFlag = true;
-    //         }
-    //     });
-    // });
+            //         DesignationFlag = false;
+            //         $(function(){
+            //         $("#Designation").change(function(){
+            //         // var HoursEntry = $("#Designation option:selected").val();
+            //         // console.log(HoursEntry);
+            //         // alert(DesignationValidation);
+            //         if("#Designation" == "")
+            //         {
+            //             $("#DesignationValidation").html("Please select at least One option");
+            //             return false;
+            //         }
+            //         else
+            //         {
+            //             $("#DesignationValidation").html("selected val is  "+HoursEntry);
+            //             return true;
+            //             DesignationFlag = true;
+            //         }
+            //     });
+            // });
 
 
-            addNameFlag=false;
+            addNameFlag = false;
             $("#addValidation").empty();
-            if($("#add").val()=="") 
-            {
-            	$("#addValidation").html("(*) Address Required..!!");
+            if ($("#add").val() == "") {
+                $("#addValidation").html("(*) Address Required..!!");
+            } else {
+
+                addNameFlag = true;
             }
-            else{
-            	
-            		addNameFlag=true;
-            }
-                       
+
 
             TxtContactNoFlag = false;
             $("#cnValidation").empty();
@@ -271,12 +264,13 @@ if(isset($_SESSION['error_email_message']))
                 }
             }
 
-            if (TxtNameFlag == true && lnNameFlag == true && eiNameFlag == true && addNameFlag==true && TxtContactNoFlag == true && DesignationFlag == true) {
+            if (TxtNameFlag == true && lnNameFlag == true && eiNameFlag == true && addNameFlag ==
+                true && TxtContactNoFlag == true && DesignationFlag == true) {
                 alert("Form submitted successfully..!!");
                 document.register.submit();
                 //location.replace("process1.php")
             } else {
-                alert("ERROR..!!");
+                alert("ERROR...Failed To Submit Form !!");
             }
         });
 
@@ -302,7 +296,7 @@ if(isset($_SESSION['error_email_message']))
 
     <style type="text/css">
     body {
-        background-color:whitesmoke;
+        background-color: whitesmoke;
     }
 
     #border {
@@ -316,18 +310,20 @@ if(isset($_SESSION['error_email_message']))
     } */
 
     #hh {
-        color: whitesmoke ;
-    }  
+        color: whitesmoke;
+    }
+
     /* #fn {
          background: transparent; border: 1px solid white;  background-color:rgba(0,0,0,0)
     } 
      */
-    
-    i.fa,b{color:yellowgreen ;}
-    /* b{text-emphasis-color:pink ; */
-        
-    
 
+    i.fa,
+    b {
+        color: yellowgreen;
+    }
+
+    /* b{text-emphasis-color:pink ; */
     /* .fullscreen_bg 
             {
                 position:relative;
@@ -338,27 +334,27 @@ if(isset($_SESSION['error_email_message']))
                 overflow:hidden;
                 z-index:-1;
             } */
-            .abc{background-image: url("Images/a.jpg");
-        background-repeat: repeat; } 
-     small {
+    .abc {
+        background-image: url("Images/a.jpg");
+        background-repeat: repeat;
+    }
+
+    small {
         font-size: 20px;
-    } 
-            
-            .fullscreen_bg_video 
-            {
-                position:absolute;
-                width: auto;
-                height: auto;
-                min-width: 100%;
-                min-height: 100%;
-            }
+    }
 
-            #genderid{
-                color: black;
-                background-color: white;
-            }
+    .fullscreen_bg_video {
+        position: absolute;
+        width: auto;
+        height: auto;
+        min-width: 100%;
+        min-height: 100%;
+    }
 
-    
+    #genderid {
+        color: black;
+        background-color: white;
+    }
 
     /* .abc {
         background-color: wheat ;
@@ -369,67 +365,70 @@ if(isset($_SESSION['error_email_message']))
 
 <body>
     <form name="register" action="process1.php" method="POST" enctype="multipart/form-data">
-    <div id="Home" class="fullscreen_bg">
-                <video src="Video/Ink - 67358.mp4" autoplay loop muted class="fullscreen_bg_video"></video>
-       
-    <div class="container" style="background-color: whitesmoke ;">
-        
-            <div class="row ">
-                <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12"
-                    id="border">
-                    <h2 id="hh" class="text-center" style="border-bottom: solid 1px;"><i class=""></i> Create New
-                        Account</h2>
-                    <hr />
+        <div id="Home" class="fullscreen_bg">
+            <video src="Video/Ink - 67358.mp4" autoplay loop muted class="fullscreen_bg_video"></video>
 
-                    <div class="form-group">
-                        <b>Firstname</b>
+            <div class="container" style="background-color: whitesmoke ;">
 
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <input id="fn" type="text" name="name" placeholder="Enter Your First Name" maxlength="20"
-                                class="form-control" />
-                        </div>
-                        <small id="fnValidation" class="text-danger"></small>
-                    </div>
+                <div class="row ">
+                    <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12"
+                        id="border">
+                        <h2 id="hh" class="text-center" style="border-bottom: solid 1px;"><i class=""></i> Create New
+                            Account</h2>
+                        <hr />
 
-                    <div class="form-group">
-                        <b>Lastname</b>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <input id="ln" type="text" name="name1" placeholder="Enter Your Last Name " maxlength="20"
-                                class="form-control" />
-                        </div>
-                        <small id="lnValidation" class="text-danger"></small>
-                    </div>
-                    <div class="form-group">
-                        <b>Address</b>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <input id="add" type="text" name="Address" placeholder="Enter Your address "
-                                maxlength="20" class="form-control" required />
-                        </div>
-                        <small id="addValidation" class="text-danger"></small>
-                    </div>
-                    <div class="form-group" >
-						<b>Gender</b>
-						<div class="input-group" id="genderid">
-							<span class="input-group-addon"><i class="fa fa-female"></i> | <i class="fa fa-male"></i></span>
-					<input  type="radio"  name="gender" value="female" required>Female
-                    <input type="radio" name="gender" value="male"  required>Male
-					<small id="lnValidation" class="text-danger"></small>
+                        <div class="form-group">
+                            <b>Firstname</b>
 
-						</div>
-					</div>
-                    <div class="form-group">
-                        <b><i class="fa fa-phone"></i> Contact No.</b>
-                        <div class="input-group">
-                            <span class="input-group-addon">+91</span>
-                            <input id="cn" type="text" name="MobileNo" placeholder="Enter Your contact no. "
-                                maxlength="10" class="form-control" />
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input id="fn" type="text" name="name" placeholder="Enter Your First Name"
+                                    maxlength="20" class="form-control" />
+                            </div>
+                            <small id="fnValidation" class="text-danger"></small>
                         </div>
-                        <small id="cnValidation" class="text-danger"></small>
-                    </div>
-                    <!-- <div class="form-group">
+
+                        <div class="form-group">
+                            <b>Lastname</b>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input id="ln" type="text" name="name1" placeholder="Enter Your Last Name "
+                                    maxlength="20" class="form-control" />
+                            </div>
+                            <small id="lnValidation" class="text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <b>Address</b>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input id="add" type="text" name="Address" placeholder="Enter Your address "
+                                    maxlength="50" class="form-control" required />
+                            </div>
+                            <small id="addValidation" class="text-danger"></small>
+                        </div>
+
+
+                        <div class="form-group">
+                            <b>Gender</b>
+                            <div class="input-group" id="genderid">
+                                <span class="input-group-addon"><i class="fa fa-female"></i> | <i
+                                        class="fa fa-male"></i></span>
+                                <input type="radio" name="gender" value="female" required checked>Female
+                                <input type="radio" name="gender" value="male" required>Male
+                                <!-- <small id="lnValidation" class="text-danger"></small> -->
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <b><i class="fa fa-phone"></i> Contact No.</b>
+                            <div class="input-group">
+                                <span class="input-group-addon">+91</span>
+                                <input id="cn" type="text" name="MobileNo" placeholder="Enter Your contact no. "
+                                    maxlength="10" class="form-control" />
+                            </div>
+                            <small id="cnValidation" class="text-danger"></small>
+                        </div>
+                        <!-- <div class="form-group">
                         <b> DOB</b>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -440,7 +439,7 @@ if(isset($_SESSION['error_email_message']))
                         <small id="TxtDateValidation" class="text-danger"></small>
                     </div> -->
 
-                    <!-- <div class="form-group">
+                        <!-- <div class="form-group">
 						<b><i class="fa fa-clender"></i> Designation</b>
 						<div class="input-group">
 							<span class="input-group-addon"></span>
@@ -449,7 +448,7 @@ if(isset($_SESSION['error_email_message']))
 						</div>
 					
 				</div> -->
-                    <!-- <div class="form-group">
+                        <!-- <div class="form-group">
                         <b><i class="fa fa-phone"></i> Designation</b>
                         <div class="input-group">
                             <select required id="Designation" name="Designation" class="form-control"
@@ -465,66 +464,67 @@ if(isset($_SESSION['error_email_message']))
                         </div>
                         <small id="DesignationValidation" class="text-danger"></small>
                     </div> -->
-<!-- ============================================================================================================================== -->
-                    <div class="form-group">
-                        <b><i class="fa fa-phone"></i> Designation</b>
-                        <div class="input-group">
-                            <select id="Designation" name="Designation" class="form-control">
-                                <option value="">Choose Designation</option>
-                                <option value="Jr.Software Devloper">Jr Devloper</option>
-                                <option value="Sr.Software Devloper">Sr Devloper</option>
-                                <option value="Project Manager">Associate Jr.Software Devloper</option>
-                                <option value="Business Analyst"> Business Analyst</option>
-                            </select>
+                        <!-- ============================================================================================================================== -->
+                        <div class="form-group">
+                            <b><i class="fa fa-phone"></i> Designation</b>
+                            <div class="input-group">
+                                <select id="Designation" name="Designation" class="form-control">
+                                    <option value="">Choose Designation</option>
+                                    <option value="Jr.Software Devloper">Jr Devloper</option>
+                                    <option value="Sr.Software Devloper">Sr Devloper</option>
+                                    <option value="Project Manager">Associate Jr.Software Devloper</option>
+                                    <option value="Business Analyst"> Business Analyst</option>
+                                </select>
+                            </div>
+                            <small id="DesignationValidation" class="text-danger"></small>
                         </div>
-                        <small id="DesignationValidation" class="text-danger"></small>
-                    </div>
-<!-- ================================================================================================================================ -->
-                    <div class="form-group">
-                        <b>Email</b>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input id="ei" type="text" name="email" placeholder="Enter Your email id " maxlength="50"
-                                class="form-control" />
+                        <!-- ================================================================================================================================ -->
+                        <div class="form-group">
+                            <b>Email</b>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input id="ei" type="text" name="email" placeholder="Enter Your email id "
+                                    maxlength="50" class="form-control" />
+                            </div>
+                            <small id="eiValidation" class="text-danger"></small>
                         </div>
-                        <small id="eiValidation" class="text-danger"></small>
-                    </div>
-                    <div class="form-group">
-                        <b>Password</b>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                            <input id="TxtPassword" name="password" type="password" placeholder="Enter Your password"
-                                maxlength="12" class="form-control" />
+                        <div class="form-group">
+                            <b>Password</b>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input id="TxtPassword" name="password" type="password"
+                                    placeholder="Enter Your password" maxlength="12" class="form-control" />
+                            </div>
+                            <small id="TxtPasswordValidation" class="text-danger"></small>
                         </div>
-                        <small id="TxtPasswordValidation" class="text-danger"></small>
-                    </div>
-                    <div class="form-group">
-                        <b>Confirm Password</b>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                            <input id="TxtPassword" name="cpass" type="password" placeholder="Enter Your password"
-                                maxlength="12" class="form-control" />
+                        <div class="form-group">
+                            <b>Confirm Password</b>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input id="TxtPassword" name="cpass" type="password" placeholder="Enter Your password"
+                                    maxlength="12" class="form-control" />
+                            </div>
+                            <small id="TxtPasswordValidation" class="text-danger"></small>
                         </div>
-                        <small id="TxtPasswordValidation" class="text-danger"></small>
-                    </div>
-                    <div class="form-group">
-                        <b>Choose File To Upload</b>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input type="file" name="fileToUpload" class="form-control" />
-                            <div id=""></div>
+                        <div class="form-group">
+                            <b>Choose File To Upload</b>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="file" name="fileToUpload" class="form-control" />
+                                <div id=""></div>
+                            </div>
+                            <small id="" class="text-danger"></small>
                         </div>
-                        <small id="" class="text-danger"></small>
-                    </div>
-                    <div class="form-group">
-                        <!-- <a class="btn btn-success"><i class="fa fa-user-plus" style="color:white;"></i> Create New Account</a> -->
-                        <center> <input class="btn btn-danger" type="reset" style="color:white;">
-                            <button class="btn btn-success" type="button" name="btn_sb" id="BtnSubmit">Submit</button>
-                        </center>
+                        <div class="form-group">
+                            <!-- <a class="btn btn-success"><i class="fa fa-user-plus" style="color:white;"></i> Create New Account</a> -->
+                            <center> <input class="btn btn-danger" type="reset" style="color:white;">
+                                <button class="btn btn-success" type="button" name="btn_sb"
+                                    id="BtnSubmit">Submit</button>
+                            </center>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 </body>
 

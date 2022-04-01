@@ -2,24 +2,26 @@
 
 session_start();
 require 'dbconnect.php';
-//var_dump($_GET);
-$id=$_GET['id'];
-$fn = $_GET['name'];
-$ln = $_GET['name1'];
-$email = $_GET['email'];
-$pw = $_GET['password'];
-$add = $_GET['Address'];
-$mb = $_GET['MobileNo'];
-$drop = $_GET['Designation'];
-$gd = $_GET['gender'];
 
-$qry="UPDATE emp SET fname='".$fn."',lname='".$ln."' ,email='".$email."' ,address='".$add."',mobile='".$mb."' ,password='".$pw."' ,designation='".$drop."' ,gender='".$gd."' WHERE id=$id";
+//var_dump($_POST);
+$id=$_POST['id'];
+$fn = $_POST['name'];
+$ln = $_POST['name1'];
+$email = $_POST['email'];
+$pw = $_POST['password'];
+$add = $_POST['Address'];
+$mb = $_POST['MobileNo'];
+$drop = $_POST['Designation'];
+$gd = $_POST['gender'];
+$fl = $_FILES['fileToUpload']['name'];
+
+$qry="UPDATE emp SET fname='".$fn."',lname='".$ln."' ,email='".$email."' ,address='".$add."',mobile='".$mb."' ,password='".$pw."' ,designation='".$drop."' ,gender='".$gd."' fileToUpload='".$fl."' WHERE id=$id";
 
 $rs=mysqli_query($conn,$qry);
 
 if($rs)
 {
-	//echo "Updated";
+	echo "Record Updated Sucessfully";
 	 header("location:index.php");
 	 exit();
 }

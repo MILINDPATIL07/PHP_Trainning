@@ -73,6 +73,23 @@ $rs=mysqli_query($conn,$qry);
 		<h3><a href="logout.php"> Logout</a></h3>
 </center>
 
+<?php
+$thelist = "";
+  if ($handle = opendir('upload')) {
+    while (false !== ($file = readdir($handle))) {
+      if ($file != "." && $file != "..") {
+        $thelist .= '<li><p>Download file <a href="download.php?file=' . $file . '">'.$file.'</a></p></li>';
+        $thelist .= '<li><p>Delete file <a href="deletefile.php?file=' . $file . '">'.$file.'</a></p></li>';
+        $thelist .= '<p>--------------------------------------';
+      }
+    }
+    closedir($handle);
+  }
+?>
+<h1>List of files:</h1>
+<ul><?php echo $thelist; ?></ul>
+
+
 
 <script>
 	// form delte with ajax
