@@ -13,9 +13,10 @@ $add = $_POST['Address'];
 $mb = $_POST['MobileNo'];
 $drop = $_POST['Designation'];
 $gd = $_POST['gender'];
-$fl = $_FILES['fileToUpload']['name'];
+//$fu=$_SESSION['target_file'];
+//$fl = $_FILES['fileToUpload']['name'];
 
-$qry="UPDATE emp SET fname='".$fn."',lname='".$ln."' ,email='".$email."' ,address='".$add."',mobile='".$mb."' ,password='".$pw."' ,designation='".$drop."' ,gender='".$gd."' fileToUpload='".$fl."' WHERE id=$id";
+$qry="UPDATE emp SET fname='".$fn."',lname='".$ln."' ,email='".$email."' ,address='".$add."',mobile='".$mb."' ,password='".$pw."' ,designation='".$drop."' ,gender='".$gd."'  WHERE id=$id";
 
 $rs=mysqli_query($conn,$qry);
 

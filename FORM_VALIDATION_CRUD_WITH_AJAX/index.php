@@ -80,7 +80,7 @@ $thelist = "";
       if ($file != "." && $file != "..") {
         $thelist .= '<li><p>Download file <a href="download.php?file=' . $file . '">'.$file.'</a></p></li>';
         $thelist .= '<li><p>Delete file <a href="deletefile.php?file=' . $file . '">'.$file.'</a></p></li>';
-        $thelist .= '<p>--------------------------------------';
+        $thelist .= '<p>***********************************************';
       }
     }
     closedir($handle);
@@ -107,7 +107,7 @@ function deletere(id) {
 			// alert("Hello! I am an alert box!!");
            
 			alert("Record Deleted Suceesfully ");
-            setInterval('window.location.reload()', 400);
+            setInterval('window.location.reload()',400);
 			
 			 //document.getElementById("txtHint").innerHTML = "Record deleted successfully";
         }

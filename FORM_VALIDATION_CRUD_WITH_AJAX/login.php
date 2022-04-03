@@ -23,7 +23,7 @@
 <html lang="en">
 <head>
 <style type="text/css">
-  *{font-size:40px;}
+  *{font-size:20px;}
   body {
           background-color: violet;
         /* background-image:url("Images/log.jpg"); */
@@ -31,7 +31,7 @@
         background-size: cover;
     }
   a {
-    color: yellow;
+    color: blueviolet;
   }
    a:hover {
     color: white;

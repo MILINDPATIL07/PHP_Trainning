@@ -334,10 +334,10 @@ if(isset($_SESSION['error_email_message']))
                 overflow:hidden;
                 z-index:-1;
             } */
-    .abc {
+    /* .abc {
         background-image: url("Images/a.jpg");
         background-repeat: repeat;
-    }
+    } */
 
     small {
         font-size: 20px;

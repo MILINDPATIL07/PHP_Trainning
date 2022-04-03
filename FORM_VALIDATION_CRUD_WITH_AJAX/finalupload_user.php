@@ -9,7 +9,7 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $_SESSION['target_file']=$_FILES["fileToUpload"]["name"];
 $uploadok = 1;
 //echo $target_file;
-$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+$FileType = pathinfo($target_file,PATHINFO_EXTENSION);
 //check if image file is a actual image or face image
 // if(isset($_POST["submit"])) 
    {

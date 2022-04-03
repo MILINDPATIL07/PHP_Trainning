@@ -20,6 +20,8 @@ if($rs)
 {
 
 	echo "Record Deleted Sucessfully !...";
+	header("location:index.php");
+	//exit;
 }
 else
 {
