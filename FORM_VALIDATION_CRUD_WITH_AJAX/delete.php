@@ -18,9 +18,8 @@ $rs=mysqli_query($conn,$qry);
 // }
 if($rs)
 {
-
-	echo "Record Deleted Sucessfully !...";
 	header("location:index.php");
+	//echo "Record Deleted Sucessfully !...";
 	//exit;
 }
 else

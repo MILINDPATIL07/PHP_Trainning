@@ -16,7 +16,6 @@ if(count($data)> 0){
  }
 }
 
-
 // echo "<pre>";
 // echo print_r($data);
 // echo "</pre>";
@@ -29,12 +28,12 @@ $name = $name1 = $email = $pass = $cpass = $gender = $address = $designation = $
 
 //if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
-    $nameErr = "FIRST Name is Required <br>";
+    $nameErr = "F Name is Required <br>";
   } else {
     $name = ($_POST["name"]);
   }
   if (empty($_POST["name1"])) {
-    $name1Err = "LAST Name is Required <br>";
+    $name1Err = "Last Name is Required <br>";
   } else {
     $name1 = ($_POST["name1"]);
   }
