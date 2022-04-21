@@ -29,7 +29,7 @@ if($pw!=$cw)
 	echo "password and cpassword doesnot match";
 	exit();
 }
-$qry1 = "SELECT * FROM emp where email = '".$email."'";
+$qry1 = "SELECT * FROM emp where email = ".$email."";
 $rs1 = mysqli_query($conn,$qry1);
 if (mysqli_num_rows($rs1)>0)
  {
