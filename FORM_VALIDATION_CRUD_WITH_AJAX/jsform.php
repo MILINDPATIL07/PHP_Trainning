@@ -34,7 +34,6 @@ if(isset($_SESSION['error_email_message']))
     var $FullNameRegEx = /^([a-zA-Z ]{2,40})$/;
     var $BankAccountNameRegEx = /^([a-zA-Z ]{2,60})$/;
     var $PasswordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,12}$/;
-
     var $EmailIdRegEx = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,8}\b$/i;
     var $ConNoRegEx = /^([0-9]{10})$/;
     var $AgeRegEx = /^([0-9]{1,2})$/;
@@ -60,11 +59,6 @@ if(isset($_SESSION['error_email_message']))
         TxtContactNoFlag = false,
         TxtContactMsgFlag = false;
 
-    //var curr_date = new Date();
-    //var month = curr_date.getMonth()+1;
-    //var day = curr_date.getDate();
-    //var output = curr_date.getFullYear() - 18 + '-' + (month<10 ? '0' : '') + month + '-' + (day<10 ? '0' : '') + day;
-
     $(document).ready(function() {
         $("#fn").blur(function() {
             TxtNameFlag = false;
@@ -80,12 +74,8 @@ if(isset($_SESSION['error_email_message']))
                     TxtNameFlag = true;
                 }
             }
-
         });
     });
-
-
-
     $(document).ready(function() {
         $("#ln").blur(function() {
             lnNameFlag = false;
@@ -100,7 +90,6 @@ if(isset($_SESSION['error_email_message']))
                     lnNameFlag = true;
                 }
             }
-
         });
         $(document).ready(function() {
             $("#ei").blur(function() {
@@ -207,9 +196,7 @@ if(isset($_SESSION['error_email_message']))
                 }
             }
 
-            //====================================================================
-
-
+           
             DesignationFlag = false;
             $("#DesignationValidation").empty();
             if ($("#Designation").val() == "") {
@@ -251,7 +238,6 @@ if(isset($_SESSION['error_email_message']))
                 addNameFlag = true;
             }
 
-
             TxtContactNoFlag = false;
             $("#cnValidation").empty();
             if ($("#cn").val() == "") {
@@ -263,7 +249,6 @@ if(isset($_SESSION['error_email_message']))
                     TxtContactNoFlag = true;
                 }
             }
-
             if (TxtNameFlag == true && lnNameFlag == true && eiNameFlag == true && addNameFlag ==
                 true && TxtContactNoFlag == true && DesignationFlag == true) {
                 alert("Form submitted successfully..!!");
@@ -281,16 +266,7 @@ if(isset($_SESSION['error_email_message']))
             Flag = true: (Flag = false, $("#cnValidation").html("(*) Invalid contact no..!!"));
             return Flag;
         });
-        // $("#ag").keypress(function (e) {
-        //     $("#agValidation").empty();
-        //     var Flag = false;
-        //     (e.which >= 48 && e.which <= 57 || (e.which == 32 || e.which == 13))
-        //         ? Flag = true
-        //         : (Flag = false, $("#agValidation").html("(*) Invalid Age no..!!"));
-        //     return Flag;
-        // });
-
-
+     
     });
     </script>
 
@@ -374,8 +350,7 @@ if(isset($_SESSION['error_email_message']))
                     <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12"
                         id="border">
                         <h2 id="hh" class="text-center" style="border-bottom: solid 1px;"><i class=""></i> Create New
-                            Account</h2>
-                        <hr />
+                            Account</h2> <br/>
 
                         <div class="form-group">
                             <b>Firstname</b>
@@ -383,7 +358,7 @@ if(isset($_SESSION['error_email_message']))
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input id="fn" type="text" name="name" placeholder="Enter Your First Name"
-                                    maxlength="20" class="form-control" />
+                                    maxlength="20" class="form-control" autofocus/>
                             </div>
                             <small id="fnValidation" class="text-danger"></small>
                         </div>
@@ -393,7 +368,7 @@ if(isset($_SESSION['error_email_message']))
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input id="ln" type="text" name="name1" placeholder="Enter Your Last Name "
-                                    maxlength="20" class="form-control" />
+                                    maxlength="20" class="form-control" autofocus/>
                             </div>
                             <small id="lnValidation" class="text-danger"></small>
                         </div>
@@ -402,7 +377,7 @@ if(isset($_SESSION['error_email_message']))
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input id="add" type="text" name="Address" placeholder="Enter Your address "
-                                    maxlength="50" class="form-control" required />
+                                    maxlength="50" class="form-control" required autofocus/>
                             </div>
                             <small id="addValidation" class="text-danger"></small>
                         </div>
@@ -414,7 +389,7 @@ if(isset($_SESSION['error_email_message']))
                                 <span class="input-group-addon"><i class="fa fa-female"></i> | <i
                                         class="fa fa-male"></i></span>
                                 <input type="radio" name="gender" value="female" required checked>Female
-                                <input type="radio" name="gender" value="male" required>Male
+                                <input type="radio" name="gender" value="male" required >Male
                                 <!-- <small id="lnValidation" class="text-danger"></small> -->
 
                             </div>
@@ -423,8 +398,8 @@ if(isset($_SESSION['error_email_message']))
                             <b><i class="fa fa-phone"></i> Contact No.</b>
                             <div class="input-group">
                                 <span class="input-group-addon">+91</span>
-                                <input id="cn" type="text" name="MobileNo" placeholder="Enter Your contact no. "
-                                    maxlength="10" class="form-control" />
+                                <input id="cn" type="text" name="MobileNo" placeholder="Enter Your contact no."
+                                    maxlength="10" class="form-control" autofocus/>
                             </div>
                             <small id="cnValidation" class="text-danger"></small>
                         </div>
@@ -484,7 +459,7 @@ if(isset($_SESSION['error_email_message']))
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <input id="ei" type="text" name="email" placeholder="Enter Your email id "
-                                    maxlength="50" class="form-control" />
+                                    maxlength="50" class="form-control" autofocus />
                             </div>
                             <small id="eiValidation" class="text-danger"></small>
                         </div>
@@ -493,7 +468,7 @@ if(isset($_SESSION['error_email_message']))
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
                                 <input id="TxtPassword" name="password" type="password"
-                                    placeholder="Enter Your password" maxlength="12" class="form-control" />
+                                    placeholder="Enter Your password" maxlength="12" class="form-control" autofocus/>
                             </div>
                             <small id="TxtPasswordValidation" class="text-danger"></small>
                         </div>
@@ -502,7 +477,7 @@ if(isset($_SESSION['error_email_message']))
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
                                 <input id="TxtPassword" name="cpass" type="password" placeholder="Enter Your password"
-                                    maxlength="12" class="form-control" />
+                                    maxlength="12" class="form-control" autofocus/>
                             </div>
                             <small id="TxtPasswordValidation" class="text-danger"></small>
                         </div>
@@ -510,7 +485,7 @@ if(isset($_SESSION['error_email_message']))
                             <b>Choose File To Upload</b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                <input type="file" name="fileToUpload" class="form-control" />
+                                <input type="file" name="fileToUpload" class="form-control" autofocus/>
                                 <div id=""></div>
                             </div>
                             <small id="" class="text-danger"></small>
