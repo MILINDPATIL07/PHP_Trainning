@@ -14,15 +14,14 @@ session_start();
 // }
 if (isset($_SESSION['error_email_message'])) {
     echo ($_SESSION['error_email_message']);
-          $_SESSION['error_email_message'] = "";
+    $_SESSION['error_email_message'] = "";
 }
 ?>
 <html>
 
 <head>
     <title>Bootstrap Form Demo</title>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- <link href="bootstrap/bootstrap.css" type="text/css" rel="stylesheet" /> -->
     <!-- online link BS -->
@@ -44,8 +43,7 @@ if (isset($_SESSION['error_email_message'])) {
         </div>
 
         <div class="row" id="background">
-            <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-6 col-xs-12"
-                id="border">
+            <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-6 col-xs-12" id="border">
                 <h2 id="Heading" class="text-center" style="border-bottom: solid 1px;"><i class=""></i> Create New
                     Account</h2>
 
@@ -53,8 +51,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b>First Name</b>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input id="fn" type="text" name="name" placeholder="Enter Your First Name" maxlength="20"
-                            class="form-control" autofocus />
+                        <input id="fn" type="text" name="name" placeholder="Enter Your First Name" maxlength="20" class="form-control" autofocus />
                     </div>
                     <small id="fnValidation" class="text-danger"></small>
                 </div>
@@ -63,8 +60,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b>Last Name</b>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input id="ln" type="text" name="name1" placeholder="Enter Your Last Name " maxlength="20"
-                            class="form-control" autofocus />
+                        <input id="ln" type="text" name="name1" placeholder="Enter Your Last Name " maxlength="20" class="form-control" autofocus />
                     </div>
                     <small id="lnValidation" class="text-danger"></small>
                 </div>
@@ -72,8 +68,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b>Address</b>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input id="add" type="text" name="Address" placeholder="Enter Your address " maxlength="50"
-                            class="form-control" required autofocus />
+                        <input id="add" type="text" name="Address" placeholder="Enter Your address " maxlength="50" class="form-control" required autofocus />
                     </div>
                     <small id="addValidation" class="text-danger"></small>
                 </div>
@@ -89,8 +84,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b><i class="fa fa-phone"></i> Contact No.</b>
                     <div class="input-group">
                         <span class="input-group-addon">+91</span>
-                        <input id="cn" type="text" name="MobileNo" placeholder="Enter Your contact no." maxlength="10"
-                            class="form-control" autofocus />
+                        <input id="cn" type="text" name="MobileNo" placeholder="Enter Your contact no." maxlength="10" class="form-control" autofocus />
                     </div>
                     <small id="cnValidation" class="text-danger"></small>
                 </div>
@@ -113,8 +107,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b>Email</b>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input id="ei" type="text" name="email" placeholder="Enter Your email id " maxlength="50"
-                            class="form-control" autofocus />
+                        <input id="ei" type="text" name="email" placeholder="Enter Your email id " maxlength="50" class="form-control" autofocus />
                     </div>
                     <small id="eiValidation" class="text-danger"></small>
                 </div>
@@ -123,8 +116,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b>Password</b>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                        <input id="pass" name="password" type="password" placeholder="Enter Your password"
-                            maxlength="12" class="form-control" />
+                        <input id="pass" name="password" type="password" placeholder="Enter Your password" maxlength="12" class="form-control" />
                     </div>
                     <small id="passValidation" class="text-danger"></small>
                 </div>
@@ -133,8 +125,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b>Confirm Password</b>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                        <input id="cpass" name="cpassword" type="password" placeholder="Confirm Your password"
-                            maxlength="12" class="form-control" />
+                        <input id="cpass" name="cpassword" type="password" placeholder="Confirm Your password" maxlength="12" class="form-control" />
                     </div>
                     <small id="cpassValidation" class="text-danger"></small>
                 </div>
@@ -158,7 +149,7 @@ if (isset($_SESSION['error_email_message'])) {
                 </div>
             </div>
         </div>
-        </div>
+
     </form>
 </body>
 

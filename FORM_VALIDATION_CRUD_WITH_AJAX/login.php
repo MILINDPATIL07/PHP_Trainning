@@ -19,78 +19,111 @@ if (isset($_COOKIE['pass'])) {
 <html lang="en">
 
 <head>
-    <style type="text/css">
-        * {
-            font-size: 20px;
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- <link href="bootstrap/bootstrap.css" type="text/css" rel="stylesheet" /> -->
+    <!-- online link BS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--CDN LINK OF JQUERY PARENT PLUG IN - COMPULSORY TO BE HERE. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <!-- JAVASCRIPT VALIDATION -->
+    <script type="text/javascript" src="JS/alljavascript.js"> </script>
+    <!-- REGISTRATION PAGE CSS -->
+    <!-- <link rel="stylesheet" href="CSS/allcss.css" type="text/css"> -->
+
+    <style>
+        .abc {
+            box-shadow: 0px 0px 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
         }
 
-        body {
-            /* background-color: violet; */
-            /* background-image:url("Images/log.jpg"); */
-            /* background-repeat: no-repeat; */
-            background-size: cover;
-        }
-
-        a {
-            color: blueviolet;
-        }
-
-        a:hover {
-            color: white;
-            text-decoration: none;
-            -webkit-transition: 0.5s all;
-            -o-transition: 0.5s all;
-            -moz-transition: 0.5s all;
-            -ms-transition: 0.5s all;
-            transition: 0.5s all;
-            font-size: 15px;
+        .pad {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
         }
     </style>
-
 </head>
 
 
 <body style="background-color:aquawhite;">
-    <center>
-        <h1>Student<b> Login </b></h1>
 
-        <h2>Login Here</h2>
-        <form action="checklogin.php" method="POST">
+    <form action="checklogin.php" method="POST">
 
-            <b> Username </b> <input type="email" name="email" value="<?php echo $un; ?>" required>
-            <b> Password </b> <input type="password" name="password" placeholder="Password" value="<?php echo $ps; ?>" required>
-            <br><br> <!-- <p><input type="checkbox" onclick="myFunction()">Show Password</p> -->
-            <!-- <p><input type="checkbox" value="1" name="remember">Remember Me</p> -->
 
-            <button type="submit" name="btn_sb">Login</button>
-            <center>
-                <h1><a href="jsform.php">New Regitration</a></h1>
-            </center>
-        </form>
+        <div class="row" id="background">
+            <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-6 col-xs-12" id="border">
+                <h2 class="text-center" style="border-bottom: solid 3px; font-weight: bold"><i class=""></i> Employee
+                    Login</h2>
+                <!-- Email input -->
+                <div class="form-outline mb-4 pad">
+                    <label class="form-label">User Name</label>
+                    <input type="email" name="email" Placeholder="Enter UserName" class="form-control" value="<?php echo $un; ?>" required />
+                </div>
 
-        <?php
-        if (isset($_POST['msg'])) {
-            # code...
-            $msg = $_POST['msg'];
-        ?>
-            <h3 style="color:red;text-align: center;"><?php echo "<script>alert('$msg')</script>"; ?></h3>
-        <?php
-        } else {
-            $msg = "";
-        }
-        ?>
+                <!-- Password input -->
+                <div class="form-outline mb-4 pad">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="myInput" name="password" class="form-control" placeholder="Password" value="<?php echo $ps; ?>" required />
+                </div>
+
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4 pad">
+                    <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check text-center" style="margin: 0 0 10px 0">
+
+                            <label><input type="checkbox" onclick="myFunction()">Show Password</label><br>
+                            <input class="form-check-input" type="checkbox" value="1" name="remember" />
+                            <label class="form-check-label"> Remember me </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" name="btn_sb" class="btn btn-primary btn-block mb-4" style="margin: 0 0 10px 0">Sign in</button>
+
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p>Not a member? <a href="jsform.php">Register</a></p>
+                </div>
+            </div>
+
         </div>
-        <script>
-            function myFunction() {
-                var x = document.getElementById("myInput");
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
-                }
+
+    </form>
+
+
+
+
+
+
+
+    <?php
+    if (isset($_POST['msg'])) {
+        # code...
+        $msg = $_POST['msg'];
+    ?>
+        <h3 style="color:red;text-align: center;"><?php echo "<script>alert('$msg')</script>"; ?></h3>
+    <?php
+    } else {
+        $msg = "";
+    }
+    ?>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
             }
-        </script>
-    </center>
+        }
+    </script>
 </body>
 
 </html>

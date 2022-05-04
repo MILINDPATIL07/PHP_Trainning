@@ -8,6 +8,8 @@ if(!isset($_POST["btn_sb"]))
 	exit();
 }
 
+// get cookie from session
+
 $us=$_POST['email'];
 $ps=$_POST['password'];
 
@@ -22,6 +24,8 @@ if(mysqli_num_rows($rs)>0)
 
 	$_SESSION['email']=$row['email'];
 	$_SESSION['pass']=$row['password'];
+
+	// set cookie
 	
 	if(isset($_POST['remember']))
 	{
@@ -38,4 +42,3 @@ else
 	header("location:login.php");
 	exit();
 }
-?>
