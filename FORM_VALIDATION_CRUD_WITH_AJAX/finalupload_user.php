@@ -7,52 +7,51 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
 $uploadOk = 1;
 
-$filetype = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  
-    
-      // Check if file already exists
-      if (file_exists($target_file)) {
-      echo "Sorry, file already exists.";
-      $uploadOk = 0;
-      }
-    
-      // Check file size
-    //   if ($_FILES["fileToUpload"]["size"] > 500000)
-	//    {
-    //   echo "Sorry, your file is too large.";
-    //   $uploadOk = 0;
-    //   }
-    
-      // Allow certain file formats
-      if($filetype != "doc" && $filetype != "pdf" && $filetype != "xlsx") {
+$filetype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        echo "Sorry, only PDF,DOC and XLS files are allowed.";
+// Allow certain file formats
+if ($filetype != "docx" && $filetype != "pdf" && $filetype != "xlsx" && $filetype != "txt") {
 
-        $uploadOk = 0;
+  echo "Sorry, only PDF,DOCX and TXT files are allowed.";
 
-    }
-    
-      // Check if $uploadOk is set to 0 by an error
+  $uploadOk = 0;
+  exit;
+}
 
-    if ($uploadOk == 0) {
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+  exit;
+}
 
-      echo "Sorry, your file was not uploaded.";
+// Check file size
+//   if ($_FILES["fileToUpload"]["size"] > 500000)
+//    {
+//   echo "Sorry, your file is too large.";
+//   $uploadOk = 0;
+//   }
 
-      // if everything is ok, try to upload file
+
+
+// Check if $uploadOk is set to 0 by an error
+
+if ($uploadOk == 0) {
+
+  echo "Sorry, your file was not uploaded.";
+
+  // if everything is ok, try to upload file
+
+} else {
+
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+
+    echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+    //header("Location: );
+    // header("Location:show.php");
 
   } else {
 
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-
-          echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-          //header("Location: );
-         // header("Location:show.php");
-
-      } else {
-
-          echo "Sorry, there was an error uploading your file.";
-
-      }
-
-  } 
-	  ?>
+    echo "Sorry, there was an error uploading your file.";
+  }
+}

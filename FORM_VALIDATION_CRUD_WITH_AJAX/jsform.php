@@ -124,7 +124,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
                         <input id="pass" name="password" type="password" placeholder="Enter Your password"
-                            maxlength="12" class="form-control"  />
+                            maxlength="12" class="form-control" />
                     </div>
                     <small id="passValidation" class="text-danger"></small>
                 </div>
@@ -134,14 +134,14 @@ if (isset($_SESSION['error_email_message'])) {
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
                         <input id="cpass" name="cpassword" type="password" placeholder="Confirm Your password"
-                            maxlength="12" class="form-control"  />
-                    </div>                    
+                            maxlength="12" class="form-control" />
+                    </div>
                     <small id="cpassValidation" class="text-danger"></small>
                 </div>
 
                 <div class="form-group">
                     <b>Choose File To Upload</b>
-                    <label style="color:red;font-size:10px;">( * Note: ONLY XLSX,PDF,DOCX,PPT FILE FORMAT
+                    <label style="color:red;font-size:10px;">( * Note: ONLY XLSX,PDF,DOCX,TXT FILE FORMAT
                         ALLOW.)</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>

@@ -1,6 +1,15 @@
 <?php
    require 'dbconnect.php';
    session_start();
+   
+
+   if (!isset($_SESSION['email'])) {
+       # code...
+       header("location:login.php");
+       exit();
+   }
+
+
    $id=$_GET['id'];
    //echo"$id"; 
    $qry="SELECT * FROM emp WHERE id=$id";
@@ -45,7 +54,7 @@ if(isset($_SESSION['error_email_message']))
 <body>
     <form name="register" action="update.php" method="POST" enctype="multipart/form-data">
         <div id="Home" class="fullscreen_bg">
-            <video src="Video/Ink - 67358.mp4" autoplay loop muted class="fullscreen_bg_video"></video>
+            <video src="Video/Space - 5200.mp4 " autoplay loop muted class="fullscreen_bg_video"></video>
            
                 <div class="row " id="background">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -168,7 +177,7 @@ if(isset($_SESSION['error_email_message']))
 
                         <div class="form-group"> -->
                             <b>Choose File To Upload</b>
-                            <label style="color:red;font-size:10px;">( * Note: ONLY XLSX,PDF,DOCX,PPT FILE FORMAT
+                            <label style="color:red;font-size:10px;">( * Note: ONLY XLSX,PDF,DOCX,TXT FILE FORMAT
                         ALLOW.)</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
