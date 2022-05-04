@@ -1,0 +1,48 @@
+.abc {
+    box-shadow: 0px 0px 30px rgba(27, 161, 214, 0.74);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    background-color: rgba(4, 0, 0, 0.6);
+
+}
+
+bg {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    /* background-size: cover; */
+}
+
+.fullscreen_bg_video {
+    position: fixed;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+div b {
+    color: white;
+}
+
+#Heading {
+    color: white;
+}
+
+
+
+#Home {
+    height: auto;
+    padding-bottom: 40px;
+    color: white;
+    font-weight: bold;
+}
+
+#border {
+    padding: 40px;
+}

@@ -13,11 +13,11 @@ $ps=$_POST['password'];
 
 $qry = "SELECT * FROM emp WHERE email='".$us."' AND password='".$ps."'";
 
+
 $rs = mysqli_query($conn,$qry);
 
 if(mysqli_num_rows($rs)>0)
 {
-
 	$row =mysqli_fetch_assoc($rs);
 
 	$_SESSION['email']=$row['email'];
@@ -27,15 +27,11 @@ if(mysqli_num_rows($rs)>0)
 	{
 		setcookie("user",$us,time() + (86400 * 30),"/");
 		setcookie("pass",$ps,time() + (86400 * 30),"/");
-
 	}
 
-	header("location:index.php");
-	exit();
-	
+	header("location:show.php");
+	exit();	
 }
-
-
 else
 {
 	echo "INVALID LOGIN";

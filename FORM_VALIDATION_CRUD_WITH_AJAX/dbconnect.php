@@ -13,14 +13,14 @@ if (!$conn)
 		die("connection Failed" . mysqli_connect_error());
 	    # code...
 	}
-   echo "Connection Successfully";
+   //echo "Connection Successfully";
 
 $db = mysqli_select_db($conn,$dbname);
 
 if ($db)
 	{
 	 	
-	 	 echo "Database Selected Sucsessfully...!";
+	 	// echo "Database Selected Sucsessfully...!";
 		# code...
 	 }
 else

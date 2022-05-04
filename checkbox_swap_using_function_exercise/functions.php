@@ -5,7 +5,8 @@ class insterdata
     public function insertdata($data,$tableB,$tableA,$col)
     {
         require("dbconnect.php");
-        $sql = "INSERT INTO $tableA VALUES ('','$data')";
+        // $sql = "INSERT INTO $tableA VALUES ('','$data')";
+        $sql = "INSERT INTO $tableA VALUES (NULL,'$data')";
         //echo $sql; exit;
 
         $sql2 = "DELETE from $tableB where $col = '$data'";
