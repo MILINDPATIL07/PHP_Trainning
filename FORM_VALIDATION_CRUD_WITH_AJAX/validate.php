@@ -7,7 +7,7 @@ if (count($data) > 0) {
     if (empty($value)) {
       $msg[$key] = $key . "  Is Required <br>";
 
-      echo $msg;
+      //echo $msg;
       $error = 0;
     } else {
       $error = 1;

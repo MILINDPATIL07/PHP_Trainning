@@ -2,43 +2,39 @@
 require 'dbconnect.php';
 session_start();
 //var_dump($_post);
-if(!isset($_POST["btn_sb"]))
-{
+if (!isset($_POST["btn_sb"])) {
+	//echo"INVLID USERNAME OR PASSWORD";
 	header("location:login.php");
 	exit();
 }
 
 // get cookie from session
 
-$us=$_POST['email'];
-$ps=$_POST['password'];
+$us = $_POST['email'];
+$ps = $_POST['password'];
 
-$qry = "SELECT * FROM emp WHERE email='".$us."' AND password='".$ps."'";
+$qry = "SELECT * FROM emp WHERE email='" . $us . "' AND password='" . $ps . "'";
 
 
-$rs = mysqli_query($conn,$qry);
+$rs = mysqli_query($conn, $qry);
 
-if(mysqli_num_rows($rs)>0)
-{
-	$row =mysqli_fetch_assoc($rs);
+if (mysqli_num_rows($rs) > 0) {
+	$row = mysqli_fetch_assoc($rs);
 
-	$_SESSION['email']=$row['email'];
-	$_SESSION['pass']=$row['password'];
+	$_SESSION['email'] = $row['email'];
+	$_SESSION['pass'] = $row['password'];
 
 	// set cookie
-	
-	if(isset($_POST['remember']))
-	{
-		setcookie("user",$us,time() + (86400 * 30),"/");
-		setcookie("pass",$ps,time() + (86400 * 30),"/");
+
+	if (isset($_POST['remember'])) {
+		setcookie("user", $us, time() + (86400 * 30), "/");
+		setcookie("pass", $ps, time() + (86400 * 30), "/");
 	}
 
-	header("location:show.php");
-	exit();	
-}
-else
-{
-	echo "INVALID LOGIN";
-	header("location:login.php");
+	header("location:index.php");
+	exit();
+} else {
+	//echo "INVALID LOGIN";
+	header("location:login.php?msg=Please Enter Valid Login Details");
 	exit();
 }

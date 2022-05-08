@@ -2,8 +2,8 @@
 session_start();
 // if (!isset($_SESSION['email'])) {
 //     # code...
-//      header("location:login.php");
-//      exit();
+//     //  header("location:login.php");
+//     //  exit();
 //  }
 
 // if (isset($_SESSION['error_message'])) {
@@ -38,7 +38,7 @@ if (isset($_SESSION['error_email_message'])) {
 
 <body>
     <form name="register" action="process1.php" method="POST" enctype="multipart/form-data">
-        <div id="bg">
+        <div id="bg">`
             <video src="Video/Space - 5200.mp4 " autoplay loop muted class="fullscreen_bg_video"></video>
         </div>
 
@@ -84,7 +84,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b><i class="fa fa-phone"></i> Contact No.</b>
                     <div class="input-group">
                         <span class="input-group-addon">+91</span>
-                        <input id="cn" type="text" name="MobileNo" placeholder="Enter Your contact no." maxlength="10" class="form-control" autofocus />
+                        <input id="cn" type="text" name="MobileNo" placeholder="Enter Your contact no." maxlength="10" class="form-control" autofocus required />
                     </div>
                     <small id="cnValidation" class="text-danger"></small>
                 </div>
@@ -92,7 +92,7 @@ if (isset($_SESSION['error_email_message'])) {
                 <div class="form-group">
                     <b><i class="fa fa-phone"></i> Designation</b>
                     <div class="input-group form-control">
-                        <select id="designation" name="designation" class="form-control  " autofocus required>
+                        <select id="Designation" name="designation" class="form-control" autofocus required>
                             <option value="">Choose Designation</option>
                             <option value="Jr.Software Devloper">Jr.Software Devloper</option>
                             <option value="Sr.Software Devloper">Sr.Software Devloper</option>
@@ -116,7 +116,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b>Password</b>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                        <input id="pass" name="password" type="password" placeholder="Enter Your password" maxlength="12" class="form-control" />
+                        <input id="pass" name="password" type="password" placeholder="Enter Your password" maxlength="12" class="form-control" autofocus />
                     </div>
                     <small id="passValidation" class="text-danger"></small>
                 </div>
@@ -125,7 +125,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <b>Confirm Password</b>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                        <input id="cpass" name="cpassword" type="password" placeholder="Confirm Your password" maxlength="12" class="form-control" />
+                        <input id="cpass" name="cpassword" type="password" placeholder="Confirm Your password" maxlength="12" class="form-control" autofocus />
                     </div>
                     <small id="cpassValidation" class="text-danger"></small>
                 </div>
@@ -136,7 +136,7 @@ if (isset($_SESSION['error_email_message'])) {
                         ALLOW.)</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" />
+                        <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" required />
                         <div id=""></div>
                     </div>
                     <small id="" class="text-danger"></small>

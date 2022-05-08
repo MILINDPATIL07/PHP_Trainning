@@ -111,7 +111,7 @@ $(document).ready(function () {
                 $("#passValidation").html("(*)Password Required..!!");
             } else {
                 if (!$(this).val().match($PasswordRegEx)) {
-                    $("#passValidation").html("(*)Invalid password..!!");
+                    $("#passValidation").html("(*)Password should be proper format Example:Pass@123");
                 } else {
                     passMsgFlag = true;
                 }
@@ -128,7 +128,7 @@ $(document).ready(function () {
 
             } else {
                 if (!$(this).val().match($PasswordRegEx)) {
-                    $("#cpassValidation").html("(*) Invalid confirm password..!!");
+                    $("#cpassValidation").html("(*)Password should be proper format Example:Pass@123");
                 } else {
                     cpassMsgFlag = true;
                 }
@@ -138,19 +138,31 @@ $(document).ready(function () {
 
 
     //===========================================================
-    $(document).ready(function () {
-        $("#designation").blur(function () {
+        $(document).ready(function () {
+            $("#Designation").blur(function () {
+                DesignationFlag = false;
+                $("#DesignationValidation").empty();
+                if ($(this).find("option:selected").text() == "") {
+                    $("#DesignationValidation").html("(*) Designation required..!!");
+
+                } else {
+
+                    DesignationFlag = true;
+                }
+            })
+        });
+
+    $("#Designation").blur(function () {
+        $("#DesignationValidation").empty();
+        DesignationFlag = false;
+        if ($(this).val() == "" || $(this).val() == null) {
+            $("#DesignationValidation").html("(*) Designation required..!!");
             DesignationFlag = false;
-            $("#DesignationValidation").empty();
-            if ($(this).find("option:selected").text() === " ") {
-                $("#DesignationValidation").html("(*) Designation required..!!");
-
-            } else {
-
-                DesignationFlag = true;
-            }
-        })
+        } else {
+            DesignationFlag = true;
+        }
     });
+
 
     $("#cn").blur(function () {
         TxtContactNoFlag = false;
@@ -206,7 +218,7 @@ $(document).ready(function () {
             $("#passValidation").html("(*) Password Required..!!");
         } else {
             if (!$("#pass").val().match($PasswordRegEx)) {
-                $("#passValidation").html("(*) Invalid Password..!!");
+                $("#passValidation").html("(*)Password should be proper format Example:Pass@123");
             } else {
                 passMsgFlag = true;
             }
@@ -218,7 +230,7 @@ $(document).ready(function () {
             $("#cpassValidation").html("(*) Confirm Password Required..!!");
         } else {
             if (!$("#cpass").val().match($PasswordRegEx)) {
-                $("#cpassValidation").html("(*) Invalid Confirm Password..!!");
+                $("#cpassValidation").html("(*)Password should be proper format Example:Pass@123");
             } else {
                 cpassMsgFlag = true;
             }
@@ -285,7 +297,7 @@ $(document).ready(function () {
 
         if (TxtNameFlag == true && lnNameFlag == true && eiNameFlag == true && addNameFlag ==
             true && TxtContactNoFlag == true && passMsgFlag == true && cpassMsgFlag == true && DesignationFlag == true) {
-                // location.replace("process1.php")
+            // location.replace("process1.php")
 
             //alert("Form submitted successfully..!!");
             document.register.submit();

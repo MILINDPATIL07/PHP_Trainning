@@ -1,53 +1,23 @@
 <?php
-include 'dbconnect.php';
-$qry = "SELECT * FROM emp";
-$rs = mysqli_query($conn, $qry);
 session_start();
-
 if (!isset($_SESSION['email'])) {
     # code...
     header("location:login.php");
     exit();
 }
+
+include 'dbconnect.php';
+$qry = "SELECT * FROM emp";
+$rs = mysqli_query($conn, $qry);
 ?>
-<script>
-    // form delete with ajax
-
-    function deletere(id) {
-        //  alert(id)
-        if (confirm('Are you sure you want to delete this')) {
-            if (id.length == 0) {
-                document.getElementById("txtHint").innerHTML = "";
-                return;
-            } else {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        if (this.responseText == 1) {
-                            // confirm("are you sure you want to delete");
-                            //windows.alert("Hello! I am an alert box!!");
-                            //alert("Record Deleted Suceesfully ");
-                            setInterval('window.location.reload()', 4000);
-                            //document.getElementById("txtHint").innerHTML = "Record deleted successfully";
-                        } else {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
-                        }
-                    }
-                };
-                xmlhttp.open("GET", "delete.php?id=" + id, true);
-                xmlhttp.send();
-            }
-        }
-    }
-</script>
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>View User</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- External js link for ajax delete -->
+    <script type="text/javascript" src="JS/ajaxdelete.js "> </script>
 
 </head>
 
@@ -80,7 +50,7 @@ if (!isset($_SESSION['email'])) {
                             <td><?php echo $row['email'] ?></td>
                             <td><?php echo $row['address'] ?></td>
                             <td><?php echo $row['mobile'] ?></td>
-                            <!-- <td><?php echo $row['password'] ?></td> -->
+                            <!-- <td></?php echo $row['password'] ?></td> -->
                             <td><?php echo $row['designation'] ?></td>
                             <td><?php echo $row['gender'] ?></td>
                             <td><a href="upload/<?php echo $row['file']; ?>"> <?php echo $row['file']; ?></td>
@@ -101,7 +71,7 @@ if (!isset($_SESSION['email'])) {
             </table>
         </center>
         <center>
-            <h1><a href="jsform.php" class="btn btn-primary">New Regitration</a></h1>
+            <!-- <h1><a href="jsform.php" class="btn btn-primary">New Regitration</a></h1> -->
             <h3><a href="logout.php" class="btn btn-danger"> Logout</a></h3>
         </center>
         <?php
@@ -120,7 +90,6 @@ if (!isset($_SESSION['email'])) {
         <!-- <h1>List of files:</h1>
     <ul></?php echo $thelist; ?></ul> -->
     </div>
-
 </body>
 
 </html>

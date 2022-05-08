@@ -13,7 +13,15 @@ if (isset($_COOKIE['pass'])) {
 } else {
     $ps = "";
 }
+
+if (isset($_SESSION['email'])) {
+    # code...
+    header("location:index.php");
+    exit();
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,36 +36,39 @@ if (isset($_COOKIE['pass'])) {
     <!--CDN LINK OF JQUERY PARENT PLUG IN - COMPULSORY TO BE HERE. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
     <!-- JAVASCRIPT VALIDATION -->
-    <script type="text/javascript" src="JS/alljavascript.js"> </script>
-    <!-- REGISTRATION PAGE CSS -->
-    <!-- <link rel="stylesheet" href="CSS/allcss.css" type="text/css"> -->
+    <script type="text/javascript" src="JS/showpassword.js "> </script>
+    <!-- LOGIN PAGE CSS -->
+    <link rel="stylesheet" href="CSS/loginpagecss.css" type="text/css">
+    <!-- stop page redirect to login page when user click on back arrow -->
+    <!-- <script language="javascript" type="text/javascript">
+        window.history.forward();
+    </script> -->
 
-    <style>
-        .abc {
-            box-shadow: 0px 0px 30px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-        }
-
-        .pad {
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 10px;
-        }
-    </style>
 </head>
-
 
 <body style="background-color:aquawhite;">
 
     <form action="checklogin.php" method="POST">
 
-
         <div class="row" id="background">
             <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-6 col-xs-12" id="border">
+
                 <h2 class="text-center" style="border-bottom: solid 3px; font-weight: bold"><i class=""></i> Employee
                     Login</h2>
+                <span style="color:red;text-align: center;">
+                    <?php
+                    if (isset($_REQUEST['msg'])) {
+                        # code...
+                        $msg = $_REQUEST['msg'];
+                    ?>
+                        <!-- <h3 style="color:red;text-align: center;"></?php echo "<script>alert('$msg')</script>"; ?></h3>  -->
+                        <p> <?php echo $msg; ?></p>
+                    <?php
+                    } else {
+                        $msg = "";
+                    }
+                    ?>
+                </span>
                 <!-- Email input -->
                 <div class="form-outline mb-4 pad">
                     <label class="form-label">User Name</label>
@@ -88,42 +99,13 @@ if (isset($_COOKIE['pass'])) {
 
                 <!-- Register buttons -->
                 <div class="text-center">
-                    <p>Not a member? <a href="jsform.php">Register</a></p>
+                    <p>Not a member? <a href='jsform.php'>Register</a></p>
                 </div>
             </div>
-
         </div>
-
     </form>
 
-
-
-
-
-
-
-    <?php
-    if (isset($_POST['msg'])) {
-        # code...
-        $msg = $_POST['msg'];
-    ?>
-        <h3 style="color:red;text-align: center;"><?php echo "<script>alert('$msg')</script>"; ?></h3>
-    <?php
-    } else {
-        $msg = "";
-    }
-    ?>
     </div>
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myInput");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-    </script>
 </body>
 
 </html>

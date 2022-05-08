@@ -13,7 +13,7 @@ if(isset($_REQUEST["file"])){
     {
       if(unlink($filename))
       {
-          echo "file named $file has been deleted successfully";
+          echo "file named .$file. has been deleted successfully";
       }
       else
       {

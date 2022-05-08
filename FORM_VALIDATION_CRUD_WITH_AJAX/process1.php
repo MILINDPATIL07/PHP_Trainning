@@ -1,14 +1,15 @@
 <?php
 session_start();
 require 'dbconnect.php';
-require 'finalupload_user.php';
-if (isset($_POST) && count($_POST) > 0) {
+include 'finalupload_user.php';
+if (isset($_POST) && count($_POST) > 0) 
+{
 	include "validate.php";
 	if ($error == 0) {
-		// print_r($msg);
+		print_r($msg);
 		//echo "failed to submit form";
-		// $_SESSION['error_message'] = $msg;
-		// header('Location:show.php');
+		$_SESSION['error_message'] = $msg;
+		// header('Location:index.php');
 		//exit();
 	}
 
@@ -27,7 +28,6 @@ if (isset($_POST) && count($_POST) > 0) {
 	if ($pw != $cw) {
 		header('Location:jsform.php');
 		echo "password and cpassword doesnot match";
-
 		exit();
 	}
 	$qry1 = "SELECT * FROM emp where email = '" . $email . "' ";
@@ -38,7 +38,7 @@ if (isset($_POST) && count($_POST) > 0) {
 		header('Location:jsform.php');
 		exit();
 	}
-	if ($fn != "" && $ln != "" && $email != "" && $pw != "" && $add != "" && $mb != "" && $drop != "" && $gd && $file != "") {
+	if ($fn != "" && $ln != "" && $email != "" && $pw != "" && $add != "" && $mb != "" && $drop != "" && $file != "") {
 
 		$qry = "INSERT INTO emp(fname,lname,email,address,mobile,password,designation,gender,file) VALUES('" . $fn . "','" . $ln . "','" . $email . "','" . $add . "','" . $mb . "','" . $pw . "','" . $drop . "','" . $gd . "','" . $file . "')";
 
@@ -47,12 +47,15 @@ if (isset($_POST) && count($_POST) > 0) {
 		$rs = mysqli_query($conn, $qry);
 		if ($rs) {
 			echo "Insert SUCCESS";
-			header("location:show.php");
+			header("location:index.php");
 			//exit();
-		} else {
+		} 
+		else 
+		{
 			header("location:jsform.php");
 		}
-	} else {
-		echo "Enter Required fields.";
+	 } 
+		else {
+		echo "Error ..!  Please Select All Fields";
 	}
 }

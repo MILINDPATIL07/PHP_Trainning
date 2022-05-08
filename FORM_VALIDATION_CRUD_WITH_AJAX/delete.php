@@ -20,7 +20,7 @@ if($rs)
 {
 	
 	//echo "<script>alert('');</script>";
-	header("location:show.php");
+	header("location:index.php");
 	//echo "Record Deleted Sucessfully !...";
 	//exit;
 }
@@ -28,4 +28,3 @@ else
 {
 	echo "Error...";
 }
-?>
