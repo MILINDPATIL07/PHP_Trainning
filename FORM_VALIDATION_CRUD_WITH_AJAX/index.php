@@ -54,7 +54,7 @@ $rs = mysqli_query($conn, $qry);
                             <td><?php echo $row['designation'] ?></td>
                             <td><?php echo $row['gender'] ?></td>
                             <td><a href="upload/<?php echo $row['file']; ?>"> <?php echo $row['file']; ?></td>
-                            <!-- <td><a href="upload/<?php echo $row['file']; ?>"> resume</td> -->
+                            <!-- <td><a href="upload/</?php echo $row['file']; ?>"> resume</td> -->
                             <td><a href="editjs.php?id=<?php echo $row['id']; ?>" class="btn btn-primary" title="Edit">EDIT</a>
                             </td>
                             <!-- <td><a href="delete.php?id=</?php echo $row['id']; ?>"  title="delete">Delete</a></td> -->

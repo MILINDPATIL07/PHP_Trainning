@@ -2,7 +2,6 @@
 require 'dbconnect.php';
 session_start();
 
-
 if (!isset($_SESSION['email'])) {
     # code...
     header("location:login.php");
@@ -17,13 +16,13 @@ $rs = mysqli_query($conn, $qry);
 $row = mysqli_fetch_assoc($rs);
 //var_dump($row);
 
-// if(isset($_SESSION['error_message']))
-// {
-// 	echo "<pre>";
-// 	print_r($_SESSION['error_message']);
-// 	echo "</pre>";
-// 	$_SESSION['error_message']="";
-// }
+if(isset($_SESSION['error_message']))
+{
+	echo "<pre>";
+	print_r($_SESSION['error_message']);
+	echo "</pre>";
+	$_SESSION['error_message']="";
+}
 
 if (isset($_SESSION['error_email_message'])) {
     echo ($_SESSION['error_email_message']);
@@ -82,6 +81,7 @@ if (isset($_SESSION['error_email_message'])) {
                         <b>Address</b>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                           <!-- <input type="address" class="form-control" value=" <//?php echo $row['address']?>"autofocus required />  -->
                             <textarea name="Address" class="form-control" autofocus required><?php echo $row['address'] ?></textarea>
                         </div>
                         <small id="lnValidation" class="text-danger"></small>
@@ -133,6 +133,19 @@ if (isset($_SESSION['error_email_message'])) {
                             <input id="ei" type="text" name="email" placeholder="Enter Your email id " maxlength="50" class="form-control" value="<?php echo $row['email'] ?>" autofocus required />
                         </div>
                         <small id="eiValidation" class="text-danger"></small>
+                        <span style="color:red;text-align: center;">
+                        <?php
+                        if (isset($_REQUEST['email'])) {
+                            # code...
+                            $msg2 = $_REQUEST['email'];
+                        ?>
+                            <p> <?php echo $msg2; ?></p>
+                        <?php
+                        } else {
+                            $msg2 = "";
+                        }
+                        ?>
+                    </span>
                     </div>
 
                     <div class="form-group">
@@ -166,7 +179,9 @@ if (isset($_SESSION['error_email_message'])) {
                     </div>
                     <div class="form-group">
 
-                        <input class="btn btn-success" type="submit" name="btn_sb" value="Update">
+                        <input class="btn btn-success" type="submit" name="btn_sb" value="update">
+                        <input type="button" value="Back" class="btn btn-primary"onclick="history.back()"/ >
+
                     </div>
                 </div>
             </div>

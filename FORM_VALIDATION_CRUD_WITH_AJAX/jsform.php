@@ -1,21 +1,21 @@
 <?php
 session_start();
-// if (!isset($_SESSION['email'])) {
-//     # code...
-//     //  header("location:login.php");
-//     //  exit();
-//  }
-
-// if (isset($_SESSION['error_message'])) {
-//     echo "<pre>";
-//     print_r($_SESSION['error_message']);
-//     echo "</pre>";
-//     $_SESSION['error_message'] = "";
-// }
-if (isset($_SESSION['error_email_message'])) {
-    echo ($_SESSION['error_email_message']);
-    $_SESSION['error_email_message'] = "";
+if (isset($_SESSION['email'])) {
+    # code...
+    header("location:login.php");
+    exit();
 }
+
+if (isset($_SESSION['error_message'])) {
+    echo "<pre>";
+    print_r($_SESSION['error_message']);
+    echo "</pre>";
+    $_SESSION['error_message'] = "";
+}
+// if (isset($_SESSION['error_email_message'])) {
+//     echo ($_SESSION['error_email_message']);
+//      $_SESSION['error_email_message'] = "";
+// }
 ?>
 <html>
 
@@ -41,7 +41,7 @@ if (isset($_SESSION['error_email_message'])) {
         <div id="bg">`
             <video src="Video/Space - 5200.mp4 " autoplay loop muted class="fullscreen_bg_video"></video>
         </div>
-
+        <!-- <a href="login.php" class="fa fa-sign-in fa-4" style="color:white; position:relative; font-size:50px; position:fixed;"> LOGIN </a> -->
         <div class="row" id="background">
             <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-6 col-xs-12" id="border">
                 <h2 id="Heading" class="text-center" style="border-bottom: solid 1px;"><i class=""></i> Create New
@@ -110,6 +110,19 @@ if (isset($_SESSION['error_email_message'])) {
                         <input id="ei" type="text" name="email" placeholder="Enter Your email id " maxlength="50" class="form-control" autofocus />
                     </div>
                     <small id="eiValidation" class="text-danger"></small>
+                    <span style="color:red;text-align: center;">
+                        <?php
+                        if (isset($_REQUEST['email'])) {
+                            # code...
+                            $msg2 = $_REQUEST['email'];
+                        ?>
+                            <p> <?php echo $msg2; ?></p>
+                        <?php
+                        } else {
+                            $msg2 = "";
+                        }
+                        ?>
+                    </span>
                 </div>
 
                 <div class="form-group">
@@ -128,6 +141,19 @@ if (isset($_SESSION['error_email_message'])) {
                         <input id="cpass" name="cpassword" type="password" placeholder="Confirm Your password" maxlength="12" class="form-control" autofocus />
                     </div>
                     <small id="cpassValidation" class="text-danger"></small>
+                    <span style="color:red;text-align: center;">
+                        <?php
+                        if (isset($_REQUEST['pass'])) {
+                            # code...
+                            $pass = $_REQUEST['pass'];
+                        ?>
+                            <p> <?php echo $pass; ?></p>
+                        <?php
+                        } else {
+                            $pass = "";
+                        }
+                        ?>
+                    </span>
                 </div>
 
                 <div class="form-group">
@@ -136,16 +162,20 @@ if (isset($_SESSION['error_email_message'])) {
                         ALLOW.)</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" required />
-                        <div id=""></div>
+                        <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" required autofocus/>
+                        <!-- <div id=""></div> -->
                     </div>
-                    <small id="" class="text-danger"></small>
+                    <small id="fileToUploadValidation" class="text-danger"></small>
                 </div>
                 <div class="form-group">
-                    <!-- <a class="btn btn-success"><i class="fa fa-user-plus" style="color:white;"></i> Create New Account</a> -->
                     <center> <input class="btn btn-danger" type="reset" style="color:white;">
                         <button class="btn btn-success" type="button" name="btn_sb" id="BtnSubmit">Submit</button>
+                        <input type="button" value="Back" class="btn btn-primary"onclick="history.back()"/ >
                     </center>
+                    <br>
+                    <div class="text-center">
+                    <p style="color:white;" >Already a member? <a href='login.php'>Login</a></p>
+                </div>
                 </div>
             </div>
         </div>

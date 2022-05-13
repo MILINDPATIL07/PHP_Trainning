@@ -13,7 +13,7 @@ $filetype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 // Allow certain file formats
 if ($filetype != "docx" && $filetype != "pdf" && $filetype != "xlsx" && $filetype != "txt") {
 
-  // echo "Sorry, only PDF,DOCX and TXT files are allowed.";
+  echo "Sorry, only PDF,DOCX and TXT files are allowed.";
   $uploadOk = 0;
 }
 
@@ -47,9 +47,10 @@ if ($uploadOk == 0) {
 
     echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
     //header("Location: );
-    header("Location:index.php");
+    //header("Location:index.php");
   } else {
 
     echo "Sorry, there was an error uploading your file.";
   }
 }
+?>

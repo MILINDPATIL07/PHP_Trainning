@@ -19,6 +19,7 @@ var $BankAccountNoRegEx = /^([0-9]{9,18})$/;
 var $PostTitleRegex = /^(.{30,300})$/;
 var $PostDescRegex = /^(.{100,3000})$/;
 var $LatitudeLongitude = /^(-?(?:1[0-7]|[1-9])?\d(?:\.\d{1,8})?|180(?:\.0{1,8})?)$/;
+var $confirmpass = $PasswordRegEx;
 
 
 var TxtNameFlag = false,
@@ -30,7 +31,8 @@ var TxtNameFlag = false,
     TxtContactNoFlag = false,
     TxtContactMsgFlag = false,
     passMsgFlag = false,
-    cpassMsgFlag = false;
+    cpassMsgFlag = false,
+    fileMsgFlag = false;
 
 $(document).ready(function () {
     $("#fn").blur(function () {
@@ -120,16 +122,36 @@ $(document).ready(function () {
     });
 
     $(document).ready(function () {
+        // $("#cpass").blur(function () {
+        //     cpassMsgFlag = false;
+        //     $("#cpassValidation").empty();
+        //     if ($(this).val() == "") {
+        //         $("#cpassValidation").html("(*) Confirm Password Required ..!!");
+
+        //     } else {
+        //         if (!$(this).val().match($PasswordRegEx)) {
+        //             $("#cpassValidation").html("(*)Password should be proper format Example:Pass@123");
+        //         } else {
+        //             cpassMsgFlag = true;
+        //         }
+        //     }
+        // })
+
         $("#cpass").blur(function () {
             cpassMsgFlag = false;
-            $("#cpassValidation").empty();
-            if ($(this).val() == "") {
-                $("#cpassValidation").html("(*) Confirm Password Required ..!!");
-
-            } else {
-                if (!$(this).val().match($PasswordRegEx)) {
-                    $("#cpassValidation").html("(*)Password should be proper format Example:Pass@123");
-                } else {
+            $("#cpass").empty();
+            
+            if ($(this).val() == "" || $(this).val() == null) {
+               
+                $("#cpassValidation").html("(*) Confirm Password required..!!");
+                cpassMsgFlag = false;                
+            }
+            else {
+                if ($(this).val() != $("#pass").val()) {
+                    $("#cpassValidation").html("(*) Password and Confirm Password Does Not Match..!!");
+                    cpassMsgFlag = false;
+                }
+                else {
                     cpassMsgFlag = true;
                 }
             }
@@ -138,19 +160,19 @@ $(document).ready(function () {
 
 
     //===========================================================
-        $(document).ready(function () {
-            $("#Designation").blur(function () {
-                DesignationFlag = false;
-                $("#DesignationValidation").empty();
-                if ($(this).find("option:selected").text() == "") {
-                    $("#DesignationValidation").html("(*) Designation required..!!");
+    $(document).ready(function () {
+        $("#Designation").blur(function () {
+            DesignationFlag = false;
+            $("#DesignationValidation").empty();
+            if ($(this).find("option:selected").text() == "") {
+                $("#DesignationValidation").html("(*) Designation required..!!");
 
-                } else {
+            } else {
 
-                    DesignationFlag = true;
-                }
-            })
-        });
+                DesignationFlag = true;
+            }
+        })
+    });
 
     $("#Designation").blur(function () {
         $("#DesignationValidation").empty();
@@ -160,6 +182,17 @@ $(document).ready(function () {
             DesignationFlag = false;
         } else {
             DesignationFlag = true;
+        }
+    });
+
+    $("#fileToUpload").blur(function () {
+        $("#fileToUploadValidation").empty();
+        fileMsgFlag = false;
+        if ($(this).val() == "" || $(this).val() == null) {
+            $("#fileToUploadValidation").html("(*) File Required..!!");
+            fileMsgFlag = false;
+        } else {
+            fileMsgFlag = true;
         }
     });
 
@@ -247,25 +280,22 @@ $(document).ready(function () {
             DesignationFlag = true;
             // }
         }
-        //         DesignationFlag = false;
-        //         $(function(){
-        //         $("#Designation").change(function(){
-        //         // var HoursEntry = $("#Designation option:selected").val();
-        //         // console.log(HoursEntry);
-        //         // alert(DesignationValidation);
-        //         if("#Designation" == "")
-        //         {
-        //             $("#DesignationValidation").html("Please select at least One option");
-        //             return false;
-        //         }
-        //         else
-        //         {
-        //             $("#DesignationValidation").html("selected val is  "+HoursEntry);
-        //             return true;
-        //             DesignationFlag = true;
-        //         }
-        //     });
-        // });  
+
+
+            fileMsgFlag = false;
+            $("#fileToUploadValidation").empty();
+            if ($("#fileToUpload").val() == "") {
+                $("#fileToUploadValidation").html("(*) File Required..!!");
+            } else {
+                // if (!$("#Designation").val().match($EmailIdRegEx)) {
+                //     $("#DesignationValidation").html("(*) Invalid Email_id..!!");
+                // } else {
+                    fileMsgFlag = true;
+                // }
+            }
+
+
+ 
         addNameFlag = false;
         $("#addValidation").empty();
         if ($("#add").val() == "") {
@@ -296,7 +326,7 @@ $(document).ready(function () {
         });
 
         if (TxtNameFlag == true && lnNameFlag == true && eiNameFlag == true && addNameFlag ==
-            true && TxtContactNoFlag == true && passMsgFlag == true && cpassMsgFlag == true && DesignationFlag == true) {
+            true && TxtContactNoFlag == true && passMsgFlag == true && cpassMsgFlag == true && DesignationFlag == true && DesignationFlag == true) {
             // location.replace("process1.php")
 
             //alert("Form submitted successfully..!!");

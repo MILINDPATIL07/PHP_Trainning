@@ -7,7 +7,6 @@ $qry ="DELETE FROM emp WHERE id=$id";
 $rs=mysqli_query($conn,$qry);
 // if($rs)
 // {
-
 // 	echo"Deleted";
 // 	header("location:index.php");
 // 	exit();

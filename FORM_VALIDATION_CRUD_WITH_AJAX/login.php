@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_SESSION['email'])) {
+    # code...
+    header("location:index.php");
+    exit();
+}
 
 if (isset($_COOKIE['user'])) {
     # code...
@@ -14,13 +19,8 @@ if (isset($_COOKIE['pass'])) {
     $ps = "";
 }
 
-if (isset($_SESSION['email'])) {
-    # code...
-    header("location:index.php");
-    exit();
-}
-?>
 
+?>
 
 
 <!DOCTYPE html>
@@ -98,6 +98,8 @@ if (isset($_SESSION['email'])) {
                 <button type="submit" name="btn_sb" class="btn btn-primary btn-block mb-4" style="margin: 0 0 10px 0">Sign in</button>
 
                 <!-- Register buttons -->
+             <!-- <button class="btn btn-primary btn-block mb-4" style="margin: 0 0 10px 0">login</button> -->
+
                 <div class="text-center">
                     <p>Not a member? <a href='jsform.php'>Register</a></p>
                 </div>
