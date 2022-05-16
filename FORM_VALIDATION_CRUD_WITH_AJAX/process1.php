@@ -22,7 +22,7 @@ if (isset($_POST) && count($_POST) > 0) {
 	$drop = $_POST['designation'];
 	$gd = $_POST['gender'];
 	$file = $_FILES["fileToUpload"]["name"];
-    $rfile=rand().$file;
+    //$rfile=rand().$file;
 
 	// $fu=&
 	// $fu=$_SESSION['target_file'];

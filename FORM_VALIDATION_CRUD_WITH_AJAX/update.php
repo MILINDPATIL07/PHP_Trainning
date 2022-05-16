@@ -26,14 +26,15 @@ if (isset($_POST['btn_sb']) && count($_POST) > 0) {
 	$rfile=rand().$file;
 	
 	//check if alrady exist 
-	// $qry1 = "SELECT * FROM emp where email = '" . $email . "' ";
-	// $rs1 = mysqli_query($conn, $qry1);
-	// if (mysqli_num_rows($rs1) >= 1) {
-	// 	//  echo"$qry";
-	// 	// $_SESSION['error_email_message'] = "EMAIL ALREADY EXIST";
-	// 	header('Location:editjs.php?email=EMAIL ALREADY EXIST');
-	// 	exit();
-	// }
+	$qry1 = "SELECT * FROM emp where email = '" . $email . "' ";
+	$rs1 = mysqli_query($conn, $qry1);
+	if (mysqli_num_rows($rs1) > 1) {
+		//  echo"$qry";
+		 $_SESSION['error_email_message'] = "EMAIL ALREADY EXIST";
+		//echo"email already exists";
+		header("Location:editjs.php?id=$id");
+	
+	}else
 
 	if ($fn != "" && $ln != "" && $email != "" && $pw != "" && $add != "" && $mb != "" && $drop != "") {
 		$target_dir = "upload/";
@@ -61,7 +62,7 @@ if (isset($_POST['btn_sb']) && count($_POST) > 0) {
 		 else {
 
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-				$select="select * from emp where id='$id'";
+				$select="select * from emp where id='$id1'";
 				$data= mysqli_query($conn, $select);
 				$result=mysqli_num_rows($data);
 				$row=mysqli_fetch_assoc($data);

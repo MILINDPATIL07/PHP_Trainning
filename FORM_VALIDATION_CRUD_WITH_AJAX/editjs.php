@@ -8,13 +8,7 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-@$id = $_GET['id'];
-//echo"$id"; 
-$qry = "SELECT * FROM emp WHERE id=$id";
-//echo"$qry";
-$rs = mysqli_query($conn, $qry);
-$row = mysqli_fetch_assoc($rs);
-//var_dump($row);
+
 
 if(isset($_SESSION['error_message']))
 {
@@ -28,7 +22,17 @@ if (isset($_SESSION['error_email_message'])) {
     echo ($_SESSION['error_email_message']);
     $_SESSION['error_email_message'] = "";
 }
+
+
+@$id = $_REQUEST['id'];
+//echo"$id"; 
+$qry = "SELECT * FROM emp WHERE id=$id";
+//echo"$qry";
+@$rs = mysqli_query($conn, $qry);
+@$row = mysqli_fetch_assoc($rs);
+//var_dump($row);
 ?>
+
 <html>
 
 <head>
@@ -58,7 +62,7 @@ if (isset($_SESSION['error_email_message'])) {
                     <h2 id="hh" class="text-center" style="border-bottom: solid 1px; color:white"><i class="fa fa-user-plus"></i> Edit From Details </h2></br>
 
                     <div class="form-group">
-                        <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+                        <input type="hidden" name="id" value="<?= $_REQUEST['id'] ?>">
                         <b>First Name</b>
 
                         <div class="input-group">
@@ -133,19 +137,7 @@ if (isset($_SESSION['error_email_message'])) {
                             <input id="ei" type="text" name="email" placeholder="Enter Your email id " maxlength="50" class="form-control" value="<?php echo $row['email'] ?>" autofocus required />
                         </div>
                         <small id="eiValidation" class="text-danger"></small>
-                        <span style="color:red;text-align: center;">
-                        <?php
-                        if (isset($_REQUEST['email'])) {
-                            # code...
-                            $msg2 = $_REQUEST['email'];
-                        ?>
-                            <p> <?php echo $msg2; ?></p>
-                        <?php
-                        } else {
-                            $msg2 = "";
-                        }
-                        ?>
-                    </span>
+                        
                     </div>
 
                     <div class="form-group">
