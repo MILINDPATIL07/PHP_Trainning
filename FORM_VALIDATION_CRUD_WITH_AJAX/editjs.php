@@ -1,5 +1,5 @@
 <?php
-require 'dbconnect.php';
+include 'dbconnect.php';
 session_start();
 
 if (!isset($_SESSION['email'])) {
@@ -8,7 +8,7 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-$id = $_GET['id'];
+@$id = $_GET['id'];
 //echo"$id"; 
 $qry = "SELECT * FROM emp WHERE id=$id";
 //echo"$qry";
