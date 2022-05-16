@@ -26,14 +26,14 @@ if (isset($_POST['btn_sb']) && count($_POST) > 0) {
 	$rfile=rand().$file;
 	
 	//check if alrady exist 
-	$qry1 = "SELECT * FROM emp where email = '" . $email . "' ";
-	$rs1 = mysqli_query($conn, $qry1);
-	if (mysqli_num_rows($rs1) >= 1) {
-		//  echo"$qry";
-		// $_SESSION['error_email_message'] = "EMAIL ALREADY EXIST";
-		header('Location:editjs.php?email=EMAIL ALREADY EXIST');
-		exit();
-	}
+	// $qry1 = "SELECT * FROM emp where email = '" . $email . "' ";
+	// $rs1 = mysqli_query($conn, $qry1);
+	// if (mysqli_num_rows($rs1) >= 1) {
+	// 	//  echo"$qry";
+	// 	// $_SESSION['error_email_message'] = "EMAIL ALREADY EXIST";
+	// 	header('Location:editjs.php?email=EMAIL ALREADY EXIST');
+	// 	exit();
+	// }
 
 	if ($fn != "" && $ln != "" && $email != "" && $pw != "" && $add != "" && $mb != "" && $drop != "") {
 		$target_dir = "upload/";
