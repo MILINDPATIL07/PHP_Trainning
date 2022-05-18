@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Session;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
 use App\Events\PostCreated;
 
 class PostController extends Controller
@@ -26,12 +27,12 @@ class PostController extends Controller
        print_r($post);
        echo "</pre>";
        exit;*/
-    //     if (!Auth::check()){
-    //         return redirect("login")->withSuccess('You are not allowed to access');
-    //    }
+        if (!Auth::check()){
+            return redirect("login")->withSuccess('You must be logged in first');
+       }
     
         $data = Post::latest()->paginate(2);
-        $datanew['newdata'] = "asdf";
+        $datanew['newdata'] = "";
     
         return view('posts.index',compact('data','datanew'))
             ->with('i', (request()->input('page', 1) - 1) * 2);
@@ -56,7 +57,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|min:4|max:10',
+            'title' => 'required|min:2|max:10',
             'email' => 'required|email|unique:posts',
             'description' => 'required|max:50',
             'gender' => 'required',
@@ -64,7 +65,7 @@ class PostController extends Controller
         ],[
                 'title.required' => 'Title is required',
                 'title.min' => 'Minimum 4 charachers require!!',
-                'title.max' => 'MAximum 10 charachers require!!',
+                'title.max' => 'Maximum 10 charachers require!!',
                 'email.required' => 'Email is required',
                 'email.unique' => 'Email is already exists!!'
             ]);
@@ -117,7 +118,7 @@ class PostController extends Controller
             'email' => 'required|unique:posts,email,'.$post->id.',id',  
             'description' => 'required|max:50',
             'gender' => 'required',
-            'designation' => 'required'
+            'designation' => 'required' 
         ],[
                 'title.required' => 'Title is required',
                 'title.min' => 'Minimum 8 charachers require!!',

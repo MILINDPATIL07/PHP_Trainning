@@ -162,7 +162,7 @@ if (isset($_SESSION['error_message'])) {
                         ALLOW.)</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" required autofocus/>
+                        <input type="file" name="fileToUpload" class="form-control" id="fileToUpload" required />
                         <!-- <div id=""></div> -->
                     </div>
                     <small id="fileToUploadValidation" class="text-danger"></small>

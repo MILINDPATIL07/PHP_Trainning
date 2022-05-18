@@ -2,7 +2,7 @@
 session_start();
 require 'dbconnect.php';
 //require 'finalupload_user.php';
-if (isset($_POST['btn_sb']) && count($_POST) > 0) {
+if (isset($_POST['btn_sb'])) {
 	include "validate.php";
 	if ($error == 0) {
 		print_r($msg);
@@ -26,13 +26,15 @@ if (isset($_POST['btn_sb']) && count($_POST) > 0) {
 	$rfile=rand().$file;
 	
 	//check if alrady exist 
-	$qry1 = "SELECT * FROM emp where email = '" . $email . "' ";
-	$rs1 = mysqli_query($conn, $qry1);
-	if (mysqli_num_rows($rs1) > 1) {
+	//$qry1 = "SELECT * FROM emp where email = '" . $email . "' ";
+	$qry1 = mysqli_query($conn, "SELECT * FROM emp WHERE email = '".$_POST['email']."' HAVING COUNT(*) > 1 ");
+	//$rs1 = mysqli_query($conn, $qry1);
+	if (mysqli_num_rows($qry1)) {
 		//  echo"$qry";
 		 $_SESSION['error_email_message'] = "EMAIL ALREADY EXIST";
 		//echo"email already exists";
 		header("Location:editjs.php?id=$id");
+		//exit;
 	
 	}else
 

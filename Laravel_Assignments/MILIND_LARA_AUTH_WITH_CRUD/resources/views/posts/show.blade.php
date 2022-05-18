@@ -21,7 +21,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>email:</strong>
+                <strong>Email:</strong>
                 {{ $post->email }}
             </div>
         </div>
@@ -33,16 +33,17 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Description:</strong>
-                {{ $post->description }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
                 <strong>Designation:</strong>
                 {{ $post->designation }}
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Description:</strong>
+                {{ $post->description }}
+            </div>
+        </div>
+        
         
     </div>
 @endsection

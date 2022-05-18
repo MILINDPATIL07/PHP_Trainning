@@ -1,16 +1,11 @@
 @extends('posts.layout')
  
 @section('content')
-@php 
-    echo "<pre>";
-        print_r($datanew);
-    echo "</pre>";
-@endphp
 
     <div class="row" style="margin-top: 5rem;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Crud app</h2>
+                <h2>Laravel Custom CRUD Application</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('posts.create') }}"> Create New Post</a>
@@ -27,11 +22,11 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Name</th>
+            <th>Title</th>
             <th>Email</th>
             <th>Gender</th>
             <th>Designation</th>
-            <th>Details</th>
+            <th>Description</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($data as $key => $value)
@@ -53,7 +48,10 @@
             </td>
         </tr>
         @endforeach
-    </table>  
+    </table>
+    <div>
+    <a class="btn btn-danger " href="{{ route('signout') }}">Logout</a> 
+    </div> <br>
     <p>Date: {{ convertYmdToMdy('2022-02-12') }}</p>
     <p>Date: {{ convertMdyToYmd('02-12-2022') }}</p>
     {!! $data->links() !!}      
