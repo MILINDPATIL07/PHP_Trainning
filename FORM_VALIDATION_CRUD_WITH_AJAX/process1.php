@@ -87,7 +87,7 @@ if (isset($_POST) && count($_POST) > 0) {
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 
 				// echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-				$qry = "INSERT INTO emp(fname,lname,email,address,mobile,password,designation,gender,file) VALUES('" . $fn . "','" . $ln . "','" . $email . "','" . $add . "','" . $mb . "','" . $pw . "','" . $drop . "','" . $gd . "','" . $rfile . "')";
+				$qry = "INSERT INTO emp(fname,lname,email,address,mobile,password,designation,gender,file) VALUES('" . $fn . "','" . $ln . "','" . $email . "','" . $add . "','" . $mb . "','" . $pw . "','" . $drop . "','" . $gd . "','" . $file . "')";
 				// echo "$qry";
 				$rs = mysqli_query($conn, $qry);
 				if ($rs) {
