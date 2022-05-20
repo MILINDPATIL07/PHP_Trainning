@@ -34,7 +34,7 @@ class CustomAuthController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect("posts")->withSuccess('Signed in Sucessfully!!');
         }
-
+ 
         return redirect("login")->withSuccess('Login Details Are Not Valid');
     }
 

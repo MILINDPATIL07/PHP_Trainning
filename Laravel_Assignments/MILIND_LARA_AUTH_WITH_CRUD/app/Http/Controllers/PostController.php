@@ -57,7 +57,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|min:2|max:10',
+            'title' => 'required|min:2|max:20',
             'email' => 'required|email|unique:posts',
             'description' => 'required|max:50',
             'gender' => 'required',
@@ -114,7 +114,7 @@ class PostController extends Controller
     {
         //echo $post->id; exit;
         $request->validate([
-            'title' => 'required|min:8',
+            'title' => 'required|min:2|maz:20',
             'email' => 'required|unique:posts,email,'.$post->id.',id',  
             'description' => 'required|max:50',
             'gender' => 'required',
